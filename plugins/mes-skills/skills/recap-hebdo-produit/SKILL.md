@@ -1,6 +1,6 @@
 ---
 name: "recap-hebdo-produit"
-description: Prépare le point produit hebdomadaire de Cashbee en collectant les données de la semaine (releases, bugs corrigés, stock de bugs, sujets à venir) depuis Jira, Slack et l'artefact « Pilotage roadmap Q4 », les présente dans le chat pour validation, puis génère les slides pour tout Cashbee. À utiliser dès que Marion demande le récap, le point produit, la release note, le bilan ou le « weekly » produit, même sans mentionner les slides.
+description: Prépare le point produit hebdomadaire de Cashbee en collectant les données de la semaine (releases, bugs corrigés, sujets à venir) depuis Jira, Slack et l'artefact « Pilotage roadmap Q4 », les présente dans le chat pour validation, puis génère les slides pour tout Cashbee. À utiliser dès que Marion demande le récap, le point produit, la release note, le bilan ou le « weekly » produit, même sans mentionner les slides.
 ---
 
 # Récap hebdo produit
@@ -37,11 +37,6 @@ Le skill fonctionne **en deux temps, avec une validation entre les deux** : (1) 
 - Jira (projet « Cashbee Consumer ») : type Bug passés en statut **Released** ou **Closed** pendant la période. Les Closed sont identifiés comme tels à l'étape de validation.
 - Regrouper par impact (ex. parcours client, back-office, partenaires). Ne pas lister les tickets un par un s'il y en a plus de ~8 : donner le total, puis les 3 à 5 plus visibles.
 
-### Stock de bugs
-- Jira (projet « Cashbee Consumer ») : Bugs qui ne sont ni Released ni Closed à la date du jour.
-- Ventiler par **priorité** et par **ancienneté** (< 1 semaine, 1–4 semaines, > 1 mois).
-- Indiquer clairement si le stock a **augmenté ou diminué** par rapport à la semaine précédente, avec l'écart (ex. « stock en hausse : +3 vs S-1 »). Stock S-1 = stock actuel − bugs créés + bugs passés Released/Closed dans la semaine. Si le stock est identique, le dire. Pas de commentaire alarmiste.
-
 ### Sujets à venir (semaine prochaine)
 Source unique : l'**artefact « Pilotage roadmap Q4 »** : https://claude.ai/artifact/Sp5UxF4wAvXbXZpKDsQ9sp
 
@@ -59,11 +54,10 @@ Source unique : l'**artefact « Pilotage roadmap Q4 »** : https://claude.ai/art
 Une fois la collecte terminée, **s'arrêter** et afficher les données dans le chat, sans créer de slides ni d'artefact. Présentation courte, par section, dans l'ordre du deck :
 
 1. **Période** retenue (ex. « S44 · 26–30 oct. »)
-2. **En bref** : nombre de releases, bugs corrigés, stock de bugs et hausse/baisse vs S-1
+2. **En bref** : nombre de releases et de bugs corrigés
 3. **Releases de la semaine** : liste reformulée en bénéfice, dans l'ordre client → partenaires → interne ; tickets Closed identifiés comme tels ; canaux Slack d'où viennent les éléments retenus
 4. **Bugs corrigés** : total + regroupement par impact
-5. **Stock de bugs** : stock actuel, hausse ou baisse vs S-1 avec l'écart, répartition par priorité et ancienneté
-6. **Semaine prochaine** : en conception / en développement et mise en ligne (titres des sujets ; signaux et précisions listés à part, ils n'iront pas sur les slides)
+5. **Semaine prochaine** : en conception / en développement et mise en ligne (titres des sujets ; signaux et précisions listés à part, ils n'iront pas sur les slides)
 
 Pour la traçabilité, indiquer entre parenthèses la clé Jira de chaque élément (elle n'apparaîtra pas sur les slides). Signaler en fin de message :
 - les `[TO_VALIDATE]` restants et les écarts Jira / Slack détectés
@@ -80,13 +74,12 @@ Utiliser le type **Slides** d'Artifact, avec exactement les données validées (
 3. `read` du type Slides (avec son `type_url`) pour obtenir ses instructions et les fichiers de données attendus, puis publier avec `type_url`.
 4. Si le type Slides n'est pas disponible, le dire en une ligne et proposer un .pptx (skill `pptx`).
 
-### Structure (6 slides)
+### Structure (5 slides)
 1. **Titre** : `Team meeting · Point produit · S{n}` suivi des dates (ex. « Team meeting · Point produit · S44 · 26–30 oct. 2026 »), avec la mention « Cashbee · Équipe Produit/Tech »
-2. **En bref** : 3 chiffres clés (releases, bugs corrigés, stock de bugs avec hausse/baisse vs S-1)
+2. **En bref** : 2 chiffres clés (releases, bugs corrigés)
 3. **Releases de la semaine** (2 slides si plus de 6 éléments) : ordre client → partenaires → interne, étiquette « Client », « Partenaires » ou « Interne » sur chaque release
 4. **Bugs corrigés**
-5. **Stock de bugs** : stock actuel, hausse ou baisse vs S-1, répartition par priorité (un graphique simple)
-6. **Semaine prochaine** : deux colonnes, « En conception » et « En développement et mise en ligne », titres des sujets seuls (pas de partie « À l'étude », pas de commentaire entre parenthèses)
+5. **Semaine prochaine** : deux colonnes, « En conception » et « En développement et mise en ligne », titres des sujets seuls (pas de partie « À l'étude », pas de commentaire entre parenthèses)
 
 Une idée par slide, peu de texte, phrases courtes, pas de jargon (« MEP » → « mise en ligne »). Pas de slide de conclusion, de risques ni de décisions. Mettre les clés Jira dans les notes de slide.
 
