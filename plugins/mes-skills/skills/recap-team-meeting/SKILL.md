@@ -1,5 +1,5 @@
 ---
-name: "recap-hebdo-produit"
+name: "recap-team-meeting"
 description: Prépare le point produit hebdomadaire de Cashbee en collectant les données de la semaine (releases, bugs corrigés, sujets à venir) depuis Jira, Slack et l'artefact « Pilotage roadmap Q4 », les présente dans le chat pour validation, puis génère les slides pour tout Cashbee. À utiliser dès que Marion demande le récap, le point produit, la release note, le bilan ou le « weekly » produit, même sans mentionner les slides.
 ---
 

@@ -22,4 +22,4 @@ Marketplace de plugins Claude Code personnelle, qui versionne mes skills et les 
 | Skill | Description |
 |---|---|
 | `exemple-skill` | Skill d'exemple à remplacer. |
-| `recap-hebdo-produit` | Prépare le point produit hebdomadaire de Cashbee (Jira, Slack, roadmap) et génère les slides. |
+| `recap-team-meeting` | Prépare le point produit hebdomadaire de Cashbee (Jira, Slack, roadmap) et génère les slides. |
